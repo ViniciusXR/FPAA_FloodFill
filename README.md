@@ -418,7 +418,7 @@ Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalh
 
 <div align="center">
 
-**Desenvolvido com ❤️ usando Python 3**
+**Desenvolvido usando Python 3**
 
 [⬆ Voltar ao topo](#-algoritmo-flood-fill---colorindo-regiões-de-um-terreno-com-obstáculos)
 
