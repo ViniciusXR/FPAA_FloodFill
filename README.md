@@ -1,26 +1,39 @@
-# Flood Fill - Colorindo Regiões de um Terreno com Obstáculos
+# 🌊 Algoritmo Flood Fill - Colorindo Regiões de um Terreno com Obstáculos
 
-## 📋 Descrição do Projeto
+<div align="center">
+
+![Python](https://img.shields.io/badge/Python-3.7+-blue.svg)
+![License](https://img.shields.io/badge/License-MIT-green.svg)
+
+**Implementação completa do algoritmo Flood Fill para identificar e preencher automaticamente todas as regiões conectadas em um grid 2D**
+
+[📖 Documentação](#-como-funciona-o-algoritmo-flood-fill) • [🚀 Instalação](#-instalação) • [💻 Uso](#-como-usar) • [⭐ Funcionalidades](#-funcionalidades)
+
+</div>
+
+---
+
+## 📋 Sobre o Projeto
 
 Este projeto implementa o **Algoritmo Flood Fill** para identificar e preencher automaticamente todas as regiões conectadas em um grid bidimensional, utilizando diferentes cores para cada área. O sistema foi desenvolvido para mapeamento inteligente de terrenos para robôs autônomos, onde é necessário identificar e classificar regiões navegáveis separadas por obstáculos.
 
-### Contexto
+### 🎯 Objetivo
+
+- ✅ Identificar e preencher automaticamente todas as regiões conectadas em um grid 2D
+- ✅ Utilizar diferentes cores para cada área desconectada
+- ✅ Respeitar os obstáculos presentes no terreno
+- ✅ Localizar automaticamente novas áreas livres após preencher uma região
+- ✅ Continuar o processo até que todo o terreno esteja mapeado e colorido
+
+### 📊 Representação do Grid
 
 O terreno é representado como um grid bidimensional, onde cada célula pode ser:
-- **0 (Branco)**: Terreno navegável - regiões que podem ser preenchidas
-- **1 (Preto)**: Obstáculo - não navegável, deve ser ignorado pelo preenchimento
-- **2, 3, 4, ...**: Cores já preenchidas em outras regiões (vermelho, laranja, amarelo, etc.)
 
-O algoritmo identifica automaticamente todas as áreas livres conectadas e as preenche com cores distintas, facilitando a visualização e o planejamento de operações para robôs autônomos.
+- **`0` (Branco)**: Terreno navegável - regiões que podem ser preenchidas
+- **`1` (Preto)**: Obstáculo - não navegável, deve ser ignorado pelo preenchimento
+- **`2, 3, 4, ...`**: Cores já preenchidas em outras regiões (vermelho, laranja, amarelo, etc.)
 
-## 🎯 Objetivo
-
-Implementar o Algoritmo Flood Fill para:
-- Identificar e preencher automaticamente todas as regiões conectadas em um grid 2D
-- Utilizar diferentes cores para cada área desconectada
-- Respeitar os obstáculos presentes no terreno
-- Localizar automaticamente novas áreas livres após preencher uma região
-- Continuar o processo até que todo o terreno esteja mapeado e colorido
+---
 
 ## 🔧 Como Funciona o Algoritmo Flood Fill
 
@@ -49,30 +62,22 @@ O **Flood Fill** (também conhecido como "preenchimento por inundação") é um 
 
 ### Implementação
 
-O projeto implementa duas abordagens:
+O projeto implementa **duas abordagens**:
 
-#### 1. **Abordagem Recursiva (DFS - Depth-First Search)**
-- Usa recursão para explorar a região
-- Mais simples de implementar
-- Pode causar estouro de pilha em grids muito grandes
-
-#### 2. **Abordagem Iterativa (BFS - Breadth-First Search)**
-- Usa uma fila (queue) para explorar a região
-- Mais eficiente para grids grandes
-- Evita problemas de estouro de pilha
-- **Esta é a abordagem padrão usada no programa**
+- **Recursiva (DFS)**: Usa recursão para explorar a região - mais simples, mas pode causar estouro de pilha em grids muito grandes
+- **Iterativa (BFS)**: Usa uma fila (queue) para explorar a região - mais eficiente e **padrão do programa**
 
 ### Complexidade
 
 - **Tempo**: O(n × m), onde n e m são as dimensões do grid
-- **Espaço**: 
-  - Recursivo: O(n × m) na pior caso (pilha de recursão)
-  - Iterativo: O(n × m) na pior caso (fila)
+- **Espaço**: O(n × m) na pior caso
+
+---
 
 ## 📦 Estrutura do Projeto
 
 ```
-trabalho2/
+FPAA_FloodFill/
 │
 ├── flood_fill.py      # Implementação do algoritmo Flood Fill
 ├── main.py            # Programa principal (entrada/saída)
@@ -85,27 +90,47 @@ trabalho2/
 └── exemplo2.txt       # Exemplo de entrada 2
 ```
 
-## 🚀 Como Configurar e Executar
+---
+
+## 🚀 Instalação
 
 ### Pré-requisitos
 
-- Python 3.7 ou superior
-- pip (gerenciador de pacotes Python)
+- **Python 3.7 ou superior**
+- **pip** (gerenciador de pacotes Python)
 
-### Instalação
+### Passo a Passo
 
-1. **Clone ou baixe o repositório**
+1. **Clone o repositório**:
+```bash
+git clone https://github.com/ViniciusXR/FPAA_FloodFill.git
+cd FPAA_FloodFill
+```
 
 2. **Instale as dependências** (opcional, apenas para visualização gráfica):
 ```bash
 pip install -r requirements.txt
 ```
 
-**Nota**: O programa funciona sem as dependências, mas a visualização gráfica não estará disponível.
+> **Nota**: O programa funciona sem as dependências, mas a visualização gráfica não estará disponível.
 
-### Execução
+---
 
-#### Opção 1: Executar com entrada interativa
+## 💻 Como Usar
+
+### Opção 1: Executar com Arquivo de Entrada
+
+```bash
+python main.py exemplo1.txt
+```
+
+ou
+
+```bash
+python main.py exemplo2.txt
+```
+
+### Opção 2: Executar com Entrada Interativa
 
 ```bash
 python main.py
@@ -118,28 +143,23 @@ n m
 x y
 ```
 
-Onde:
-- `n m`: dimensões do grid (linhas e colunas)
-- `<grid>`: valores do grid separados por espaço
-- `x y`: coordenadas iniciais (linha e coluna)
-
-#### Opção 2: Executar com arquivo de entrada
-
-```bash
-python main.py exemplo1.txt
+**Exemplo de entrada**:
+```
+4 5
+0 0 1 0 0
+0 1 1 0 0
+0 0 1 1 1
+1 1 0 0 0
+0 0
 ```
 
-ou
-
-```bash
-python main.py exemplo2.txt
-```
-
-#### Opção 3: Executar sem entrada (usa exemplo padrão)
+### Opção 3: Executar sem Entrada (usa exemplo padrão)
 
 Pressione `Ctrl+C` quando solicitado a entrada, e o programa usará o exemplo padrão.
 
-### Formato de Entrada
+---
+
+## 📝 Formato de Entrada
 
 O arquivo de entrada deve seguir este formato:
 
@@ -152,23 +172,12 @@ an1 an2 ... anm
 x y
 ```
 
-**Exemplo**:
-```
-4 5
-0 0 1 0 0
-0 1 1 0 0
-0 0 1 1 1
-1 1 0 0 0
-0 0
-```
+Onde:
+- `n m`: dimensões do grid (linhas e colunas)
+- `<grid>`: valores do grid separados por espaço
+- `x y`: coordenadas iniciais (linha e coluna)
 
-### Formato de Saída
-
-O programa exibe:
-1. **Grid Inicial**: O grid antes do preenchimento
-2. **Grid Preenchido**: O grid após o preenchimento
-3. **Visualização Formatada**: Grids com índices de linhas e colunas
-4. **Visualização Gráfica**: Janela com cores (se matplotlib estiver instalado)
+---
 
 ## 📊 Exemplos de Entrada e Saída
 
@@ -234,20 +243,17 @@ O programa exibe:
 3 3 3 1 4
 ```
 
-**Explicação**:
-- A região conectada a (0,2) foi preenchida com cor 2 (vermelho)
-- A região da esquerda foi preenchida com cor 3 (laranja)
-- A região do canto inferior direito foi preenchida com cor 4 (amarelo)
+---
 
 ## 🎨 Visualização
 
-O programa oferece duas formas de visualização:
+O programa oferece **duas formas de visualização**:
 
 ### 1. Visualização em Terminal
 
 Mostra os grids em formato de matriz com números, incluindo índices de linhas e colunas para facilitar a leitura.
 
-### 2. Visualização Gráfica
+### 2. Visualização Gráfica (com cores)
 
 Mostra os grids com cores:
 - **Branco**: Terreno navegável (0)
@@ -259,66 +265,9 @@ Mostra os grids com cores:
 
 A visualização gráfica abre uma janela com os dois grids lado a lado para comparação.
 
-## 🧪 Testes
+---
 
-O projeto foi testado com:
-- Grids de diferentes tamanhos (pequenos e grandes)
-- Grids com múltiplos obstáculos
-- Grids sem células navegáveis
-- Grids com uma única região conectada
-- Grids com múltiplas regiões desconectadas
-- Coordenadas iniciais em diferentes posições
-- Grids com células já coloridas
-- Células iniciais em obstáculos
-
-O arquivo `test_cases.py` contém casos de teste adicionais para validação do algoritmo.
-
-## 📝 Regras de Funcionamento
-
-1. **Respeito a Obstáculos**: O preenchimento não pode passar através de células com valor 1 (obstáculos)
-
-2. **Preservação de Cores**: Regiões já coloridas (valor >= 2) são mantidas intactas
-
-3. **Adjacência Ortogonal**: Uma região conectada é composta apenas de células ortogonalmente adjacentes (acima, abaixo, esquerda, direita). Não considera adjacência diagonal.
-
-4. **Preenchimento Automático**: Após preencher uma região, o programa localiza automaticamente a próxima célula navegável e preenche uma nova região com cor diferente
-
-5. **Completude**: O processo continua até que todas as células navegáveis tenham sido preenchidas
-
-## 🔍 Detalhes Técnicos
-
-### Estrutura de Dados
-
-- **Grid**: Lista de listas de inteiros (`List[List[int]]`)
-- **Fila**: `collections.deque` para implementação iterativa (BFS)
-
-### Algoritmo Principal
-
-```python
-def fill_all_regions(initial_row, initial_col):
-    1. Preenche região conectada à célula inicial
-    2. Enquanto houver células navegáveis (valor 0):
-       a. Encontra próxima célula navegável
-       b. Preenche região conectada com nova cor
-       c. Incrementa cor atual
-```
-
-### Tratamento de Casos Especiais
-
-- Coordenadas fora dos limites do grid
-- Grid vazio
-- Grid sem células navegáveis
-- Célula inicial em obstáculo (usa próxima célula navegável)
-
-## 👥 Autores
-
-Projeto desenvolvido para a disciplina de **Fundamentos de Projeto e Análise de Algoritmos** da PUC Minas.
-
-## 📄 Licença
-
-Este projeto foi desenvolvido para fins educacionais.
-
-## ⭐ Funcionalidades Extras (Pontos Extras)
+## ⭐ Funcionalidades Extras
 
 O projeto inclui funcionalidades extras implementadas no arquivo `extra_features.py`:
 
@@ -352,9 +301,111 @@ grid = generate_random_grid(10, 10, obstacle_ratio=0.3)
 start = create_random_grid_file("grid_aleatorio.txt", 10, 10, 0.3)
 ```
 
-**Parâmetros:**
+**Parâmetros**:
 - `rows`, `cols`: Dimensões do grid
 - `obstacle_ratio`: Proporção de obstáculos (0.0 a 1.0)
+
+---
+
+## 🧪 Testes
+
+### Testes Básicos
+
+```bash
+# Teste com Exemplo 1
+python main.py exemplo1.txt
+
+# Teste com Exemplo 2
+python main.py exemplo2.txt
+```
+
+### Teste com Entrada Interativa
+
+```bash
+python main.py
+```
+
+### Teste de Funcionalidades Extras
+
+```bash
+# Gerar grid aleatório
+python -c "from extra_features import create_random_grid_file; create_random_grid_file('grid_teste.txt', 8, 8, 0.25); print('Grid criado!')"
+python main.py grid_teste.txt
+
+# Visualização dinâmica
+python -c "from extra_features import visualize_dynamic_fill; grid = [[0,0,1,0,0],[0,1,1,0,0],[0,0,1,1,1],[1,1,0,0,0]]; visualize_dynamic_fill(grid, 0, 0, 0.3)"
+```
+
+### Casos de Teste Especiais
+
+O arquivo `test_cases.py` contém casos de teste adicionais para validação do algoritmo, incluindo:
+- Grids de diferentes tamanhos
+- Grids com múltiplos obstáculos
+- Grids sem células navegáveis
+- Grids com uma única região conectada
+- Grids com múltiplas regiões desconectadas
+- Coordenadas iniciais em diferentes posições
+
+---
+
+## 📝 Regras de Funcionamento
+
+1. **Respeito a Obstáculos**: O preenchimento não pode passar através de células com valor 1 (obstáculos)
+
+2. **Preservação de Cores**: Regiões já coloridas (valor >= 2) são mantidas intactas
+
+3. **Adjacência Ortogonal**: Uma região conectada é composta apenas de células ortogonalmente adjacentes (acima, abaixo, esquerda, direita). Não considera adjacência diagonal.
+
+4. **Preenchimento Automático**: Após preencher uma região, o programa localiza automaticamente a próxima célula navegável e preenche uma nova região com cor diferente
+
+5. **Completude**: O processo continua até que todas as células navegáveis tenham sido preenchidas
+
+---
+
+## 🔍 Detalhes Técnicos
+
+### Estrutura de Dados
+
+- **Grid**: Lista de listas de inteiros (`List[List[int]]`)
+- **Fila**: `collections.deque` para implementação iterativa (BFS)
+
+### Algoritmo Principal
+
+```python
+def fill_all_regions(initial_row, initial_col):
+    1. Preenche região conectada à célula inicial
+    2. Enquanto houver células navegáveis (valor 0):
+       a. Encontra próxima célula navegável
+       b. Preenche região conectada com nova cor
+       c. Incrementa cor atual
+```
+
+### Tratamento de Casos Especiais
+
+- Coordenadas fora dos limites do grid
+- Grid vazio
+- Grid sem células navegáveis
+- Célula inicial em obstáculo (usa próxima célula navegável)
+
+---
+
+## 👥 Autores
+
+Projeto desenvolvido para a disciplina de **Fundamentos de Projeto e Análise de Algoritmos** da PUC Minas.
+
+**Equipe**:
+- Cristiano Nunes Pires Junior
+- Joey Clapton Maciel Barbosa Santos
+- Sthel Felipe Torres
+- Vinicius Xavier Ramalho
+
+---
+
+## 📄 Licença
+
+Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
+
+---
 
 ## 🎓 Referências
 
@@ -365,5 +416,10 @@ start = create_random_grid_file("grid_aleatorio.txt", 10, 10, 0.3)
 
 ---
 
-**Desenvolvido com Python 3** 🐍
+<div align="center">
 
+**Desenvolvido com ❤️ usando Python 3**
+
+[⬆ Voltar ao topo](#-algoritmo-flood-fill---colorindo-regiões-de-um-terreno-com-obstáculos)
+
+</div>
