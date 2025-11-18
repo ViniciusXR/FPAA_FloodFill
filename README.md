@@ -48,7 +48,7 @@ O projeto resolve o desafio de **identificar e preencher todas as regiões naveg
 
 ### Pré-requisitos
 
-- **Python 3.6 ou superior** instalado no sistema
+- **Python 3.13.7 ou superior** instalado no sistema
 - Nenhuma biblioteca externa é necessária (usa apenas bibliotecas padrão do Python)
 
 ### Instalação
