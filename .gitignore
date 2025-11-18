@@ -41,3 +41,8 @@ Thumbs.db
 *.pyc
 .pytest_cache/
 
+# Arquivos de teste temporários
+grid_*.txt
+teste*.txt
+*_teste.txt
+
