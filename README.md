@@ -413,6 +413,7 @@ Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalh
 - **DFS (Depth-First Search)**: Busca em profundidade
 - **BFS (Breadth-First Search)**: Busca em largura
 - **Grafos**: Teoria de grafos para modelagem de grids
+- https://www.freecodecamp.org/portuguese/news/algoritmo-de-preenchimento-por-inundacao-explicado/
 
 ---
 
